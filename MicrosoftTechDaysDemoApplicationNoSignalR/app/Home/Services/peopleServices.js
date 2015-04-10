@@ -1,22 +1,22 @@
 ﻿'use strict';
 homeModule.factory("home.services.peopleService", [
-    "$http", "$q", "common.services.arrayHelper", function($http, $q, arrayHelper) {
+    "$http", "$q", "common.services.arrayHelper", function ($http, $q, arrayHelper) {
 
-        var urlPrefix = '/api/home/';
+        var url = '/api/home/';
 
         var _allPeople = [];
 
-        var _getAllPeople = function() {
+        var _getAllPeople = function () {
 
             var deferred = $q.defer();
 
-            $http.get(urlPrefix + "GetAllMyPersons")
-                .then(function(result) {
-                        // Successful
-                        angular.copy(result.data, _allPeople);
-                        deferred.resolve(result);
-                    },
-                    function() {
+            $http.get(url)
+                .then(function (result) {
+                    // Successful
+                    angular.copy(result.data, _allPeople);
+                    deferred.resolve(result);
+                },
+                    function () {
                         // Error
                         deferred.reject();
                     });
@@ -24,17 +24,17 @@ homeModule.factory("home.services.peopleService", [
             return deferred.promise;
         };
 
-        var _addPerson = function(newPersonToAdd) {
+        var _addPerson = function (newPersonToAdd) {
 
             var deferred = $q.defer();
 
-            $http.post(urlPrefix + "AddPerson", newPersonToAdd)
-                .then(function(result) {
-                        // Successful
-                        arrayHelper.addItemToArray(_allPeople, result.data);
-                        deferred.resolve(result);
-                    },
-                    function() {
+            $http.post(url, newPersonToAdd)
+                .then(function (result) {
+                    // Successful
+                    arrayHelper.addItemToArray(_allPeople, result.data);
+                    deferred.resolve(result);
+                },
+                    function () {
                         // Error
                         deferred.reject();
                     });
@@ -42,17 +42,21 @@ homeModule.factory("home.services.peopleService", [
             return deferred.promise;
         };
 
-        var _deletePerson = function(personToDelete) {
+        var _deletePerson = function (personToDelete) {
 
             var deferred = $q.defer();
 
-            $http.post(urlPrefix + "DeletePerson", personToDelete)
-                .then(function(result) {
-                        // Successful
-                        arrayHelper.removeFromArray(_allPeople, result.data);
-                        deferred.resolve(result);
-                    },
-                    function() {
+            $http.delete(url + personToDelete.Id)
+                .then(function (result) {
+                    // Successful
+                    for (var i = _allPeople.length; i--;) {
+                        if (_allPeople[i].Id === personToDelete.Id) {
+                            _allPeople.splice(i, 1);
+                        }
+                    }
+                    deferred.resolve(result);
+                },
+                    function () {
                         // Error
                         deferred.reject();
                     });

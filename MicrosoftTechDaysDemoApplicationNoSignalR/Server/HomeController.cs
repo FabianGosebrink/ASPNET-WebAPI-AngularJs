@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Web.Http;
 using MicrosoftTechDaysDemoApplicationNoSignalR.Server.Models;
 using MicrosoftTechDaysDemoApplicationNoSignalR.Server.Services;
 
 namespace MicrosoftTechDaysDemoApplicationNoSignalR.Server
 {
+    [RoutePrefix("api")]
     public class HomeController : ApiController
     {
-        [HttpGet]
-        public IHttpActionResult GetAllMyPersons()
+        public IHttpActionResult Get()
         {
             return Ok(Singleton.Instance.Persons);
         }
 
-        [HttpPost]
-        public IHttpActionResult AddPerson([FromBody] Person person)
+        public IHttpActionResult Post([FromBody] Person person)
         {
+
             Person personToAdd = new Person
             {
-                Id = Guid.NewGuid(),
+                Id = new Random().Next(1, 1000),
                 Age = person.Age,
                 Name = person.Name
             };
@@ -29,14 +30,14 @@ namespace MicrosoftTechDaysDemoApplicationNoSignalR.Server
             return Ok(personToAdd);
         }
 
-        [HttpPost]
-        public IHttpActionResult DeletePerson([FromBody] Person person)
+        [Route("home/{personId}")]
+        public IHttpActionResult Delete(int personId)
         {
-            Person personToRemove = Singleton.Instance.Persons.First(x => x.Id == person.Id);
+            Person personToRemove = Singleton.Instance.Persons.First(x => x.Id == personId);
 
             Singleton.Instance.Persons.Remove(personToRemove);
 
-            return Ok(person);
+            return StatusCode(HttpStatusCode.NoContent);
         }
     }
 }
