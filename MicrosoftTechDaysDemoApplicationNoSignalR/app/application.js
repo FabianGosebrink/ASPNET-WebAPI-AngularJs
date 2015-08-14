@@ -1,4 +1,6 @@
-﻿var app = angular.module('MSTechDaysApp',
+﻿(function () {
+    "use strict";
+    angular.module('MSTechDaysApp',
     [
         'ngRoute',
         'ngResource',
@@ -7,6 +9,9 @@
 
         'home.homeModule',
         'contact.contactModule'
-    ]);
-
+    ]).config(['$locationProvider', function ($locationProvider) {
+        $locationProvider.html5Mode(true);
+    }]);
+}
+());
 

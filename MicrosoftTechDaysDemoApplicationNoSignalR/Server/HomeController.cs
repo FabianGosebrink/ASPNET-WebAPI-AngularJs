@@ -46,7 +46,7 @@ namespace MicrosoftTechDaysDemoApplicationNoSignalR.Server
 
             Person personToAdd = new Person
             {
-                Id = new Random().Next(1, 1000),
+                Id = Singleton.Instance.Persons.Max(x => x.Id) + 1,
                 Age = person.Age,
                 Name = person.Name
             };

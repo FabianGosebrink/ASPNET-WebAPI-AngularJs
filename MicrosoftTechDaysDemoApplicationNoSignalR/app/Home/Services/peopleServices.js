@@ -1,5 +1,5 @@
 ﻿'use strict';
-homeModule.factory("home.services.peopleService", [
+angular.module('home.homeModule').factory("home.services.peopleService", [
     "$http", "$q", "common.services.arrayHelper", function ($http, $q, arrayHelper) {
 
         var url = '/api/home/';
