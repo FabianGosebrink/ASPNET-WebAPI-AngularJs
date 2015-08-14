@@ -7,16 +7,42 @@ using MicrosoftTechDaysDemoApplicationNoSignalR.Server.Services;
 
 namespace MicrosoftTechDaysDemoApplicationNoSignalR.Server
 {
-    [RoutePrefix("api")]
+    [RoutePrefix("api/home")]
     public class HomeController : ApiController
     {
+        [HttpGet]
         public IHttpActionResult Get()
         {
             return Ok(Singleton.Instance.Persons);
         }
 
-        public IHttpActionResult Post([FromBody] Person person)
+        [HttpGet]
+        [Route("{id:int}")]
+        public IHttpActionResult GetSingle(int id)
         {
+            Person person = Singleton.Instance.Persons.FirstOrDefault(x => x.Id == id);
+
+            if (person == null)
+            {
+                return NotFound();
+            }
+
+
+            return Ok(person);
+        }
+
+        [HttpPost]
+        public IHttpActionResult AddPerson([FromBody] Person person)
+        {
+            if (person == null)
+            {
+                return BadRequest();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             Person personToAdd = new Person
             {
@@ -30,10 +56,17 @@ namespace MicrosoftTechDaysDemoApplicationNoSignalR.Server
             return Ok(personToAdd);
         }
 
-        [Route("home/{personId}")]
-        public IHttpActionResult Delete(int personId)
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IHttpActionResult DeletePerson(int id)
         {
-            Person personToRemove = Singleton.Instance.Persons.First(x => x.Id == personId);
+            Person personToRemove = Singleton.Instance.Persons.First(x => x.Id == id);
+
+            if (personToRemove == null)
+            {
+                return NotFound();
+            }
+
 
             Singleton.Instance.Persons.Remove(personToRemove);
 
