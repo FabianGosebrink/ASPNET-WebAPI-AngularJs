@@ -8,7 +8,7 @@
             .when("/", {
                 controller: "home.controllers.homeController",
                 controllerAs: "viewModel",
-                templateUrl: "/app/Home/Templates/overview.html"
+                templateUrl: "app/Home/Templates/overview.html"
             })
             .otherwise({ redirectTo: "/" });
     });

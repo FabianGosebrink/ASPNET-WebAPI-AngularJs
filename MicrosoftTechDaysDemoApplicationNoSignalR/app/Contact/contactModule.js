@@ -6,7 +6,7 @@
         $routeProvider
             .when("/contact", {
                 controller: "contact.controllers.contactController",
-                templateUrl: "/app/Contact/Templates/contact.html"
+                templateUrl: "app/Contact/Templates/contact.html"
             })
             .otherwise({ redirectTo: "/" });
     });
