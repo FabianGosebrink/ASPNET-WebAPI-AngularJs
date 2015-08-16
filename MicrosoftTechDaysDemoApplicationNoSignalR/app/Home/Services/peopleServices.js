@@ -34,9 +34,9 @@ angular.module('home.homeModule').factory("home.services.peopleService", [
                     arrayHelper.addItemToArray(_allPeople, result.data);
                     deferred.resolve(result);
                 },
-                    function () {
+                    function (result) {
                         // Error
-                        deferred.reject();
+                        deferred.reject(result);
                     });
 
             return deferred.promise;

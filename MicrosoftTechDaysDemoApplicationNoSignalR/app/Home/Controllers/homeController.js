@@ -18,7 +18,7 @@
                     },
                     function () {
                         //Error
-                        toaster.pop("Error", "Error", "Error");
+                        toaster.pop("error", "Error", "Error");
                     }).then(function () {
                         cfpLoadingBar.complete();
                     });
@@ -31,9 +31,15 @@
                             vm.newPerson = null;
                             toaster.pop("success", "Success", "Person added");
                         },
-                        function () {
+                        function (response) {
                             //Error
-                            toaster.pop("Error", "Error", "Error while adding person");
+                            var errors = [];
+                            for (var key in response.data.ModelState) {
+                                for (var i = 0; i < response.data.ModelState[key].length; i++) {
+                                    errors += response.data.ModelState[key][i] + "\r\n";
+                                }
+                            }
+                            toaster.pop("error", "Error", errors);
                         }
                     );
             };
@@ -46,7 +52,7 @@
                         },
                         function () {
                             //Error
-                            toaster.pop("Error", "Error", "Error while removing person");
+                            toaster.pop("error", "Error", "Error while removing person");
                         });
             };
 
