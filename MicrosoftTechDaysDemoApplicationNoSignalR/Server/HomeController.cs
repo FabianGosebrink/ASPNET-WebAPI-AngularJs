@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
 using System.Web.Http;
 using MicrosoftTechDaysDemoApplicationNoSignalR.Server.Models;
@@ -46,7 +45,7 @@ namespace MicrosoftTechDaysDemoApplicationNoSignalR.Server
 
             Person personToAdd = new Person
             {
-                Id = Singleton.Instance.Persons.Max(x => x.Id) + 1,
+                Id = !Singleton.Instance.Persons.Any() ? 1 : Singleton.Instance.Persons.Max(x => x.Id) + 1,
                 Age = person.Age,
                 Name = person.Name
             };
