@@ -1,8 +1,8 @@
 ﻿(function () {
     "use strict";
     angular.module('home.homeModule').controller('home.controllers.homeController', [
-        'home.services.peopleService', 'toaster', 'cfpLoadingBar',
-        function (peopleService, toaster, cfpLoadingBar) {
+        'home.services.peopleService', 'toastr', 'cfpLoadingBar',
+        function (peopleService, toastr, cfpLoadingBar) {
 
             var vm = this;
 
@@ -18,7 +18,7 @@
                     },
                     function () {
                         //Error
-                        toaster.pop("error", "Error", "Error");
+                        toastr.error("An Error occured", "Error");
                     }).then(function () {
                         cfpLoadingBar.complete();
                     });
@@ -39,7 +39,7 @@
                                     errors += response.data.ModelState[key][i] + "\r\n";
                                 }
                             }
-                            toaster.pop("error", "Error", errors);
+                            toastr.error(errors, "Error");
                         }
                     );
             };
@@ -48,11 +48,11 @@
                 peopleService.deletePerson(personToDelete)
                     .then(
                         function () {
-                            toaster.pop("success", "Success", "Person deleted");
+                            toastr.success('Person deleted', 'Success!');
                         },
                         function () {
                             //Error
-                            toaster.pop("error", "Error", "Error while removing person");
+                            toastr.error("An Error occured", "Error");
                         });
             };
 
