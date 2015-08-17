@@ -15,9 +15,7 @@
 
         'home.homeModule',
         'contact.contactModule'
-    ]).config(['$locationProvider', function ($locationProvider) {
-        $locationProvider.html5Mode(true);
-    }]).config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+    ]).config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
     }]);
 }
