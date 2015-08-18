@@ -1,9 +1,12 @@
-# AngularJsDemoAppWithoutSignalR
-Demo Application for AngularJS without SignalR
+# AngularJs DemoApp
 
-As promised on the TechDays here is my Sample-Application. 
+Demo Application for AngularJS
+
+A simple demo application with AngularJS.
+
+Here bower is used. Run run the corresponsing commands to install/update the packages
+
 Note that this is just a sample! NEVER use a Singleton to replace a database in a business-application.
-
 This was just made for demo purposes.
 
 Regards
