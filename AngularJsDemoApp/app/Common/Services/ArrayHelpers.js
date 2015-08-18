@@ -3,7 +3,7 @@
 (function () {
     'use strict';
 
-    angular.module('MSTechDaysApp').service("common.services.arrayHelper", [function () {
+    angular.module('AngularJsDemoApp').service("common.services.arrayHelper", [function () {
 
         function _removeFromArray(array, item) {
             for (var i = array.length; i--;) {

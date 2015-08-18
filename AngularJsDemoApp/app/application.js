@@ -4,7 +4,7 @@
 
 (function () {
     "use strict";
-    angular.module('MSTechDaysApp',
+    angular.module('AngularJsDemoApp',
     [
         'ngRoute',
         'ngAnimate',
