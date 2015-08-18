@@ -29,7 +29,7 @@
                     .then(
                         function () {
                             vm.newPerson = null;
-                            toastr.pop("success", "Success", "Person added");
+                            toastr.success('Person added', 'Success!');
                         },
                         function (response) {
                             //Error
