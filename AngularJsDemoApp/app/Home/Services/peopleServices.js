@@ -1,4 +1,5 @@
-﻿'use strict';
+﻿(function () {
+    'use strict';
 angular.module('home.homeModule').factory("home.services.peopleService", [
     "$http", "$q", "common.services.arrayHelper", function ($http, $q, arrayHelper) {
 
@@ -72,3 +73,4 @@ angular.module('home.homeModule').factory("home.services.peopleService", [
         }
     }
 ]);
+})();
