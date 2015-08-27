@@ -12,11 +12,9 @@
         "app.common",
         "home.homeModule",
         "contact.contactModule"
-
     ]).config(["cfpLoadingBarProvider", function (cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
     }]);
-}
-());
+}());
 
 
