@@ -11,6 +11,5 @@
         "try",
         "catch",
         "typeof"
-    ],
-	"excludeFiles": ["./node_modules/**/*.js"]
+    ]
 }

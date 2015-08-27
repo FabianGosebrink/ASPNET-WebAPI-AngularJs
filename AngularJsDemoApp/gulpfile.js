@@ -7,12 +7,18 @@ var concat = require('gulp-concat');
 var del = require('del');
 var watch = require('gulp-watch');
 
-gulp.task('watch', function(){
-    return gulp.watch([
+ var config = {
+    srcJSFiles : [
 	"./app/*.js",
 	"./app/*/*.js",
 	"./app/*/*/*.js"
-	], ['compress']);
+	]
+ };
+
+
+
+gulp.task('watch', function(){
+    return gulp.watch(config.srcJSFiles, ['compress']);
 });
 
 gulp.task('clean', function(){
@@ -20,10 +26,7 @@ gulp.task('clean', function(){
 });
 
 gulp.task("vet", function(){
-	gulp.src([
-	"./app/*/*.js",
-	"./app/*/*/*.js"
-	])
+	gulp.src(config.srcJSFiles)
 	.pipe(jscs())
 	.pipe(jshint())
 	.pipe(jshint.reporter("jshint-stylish",{verbose:true}));
@@ -31,11 +34,7 @@ gulp.task("vet", function(){
 
 
 gulp.task('compress',["vet", "clean"], function() {
-  return gulp.src([
-	"./app/*.js",
-	"./app/*/*.js",
-	"./app/*/*/*.js"
-	])
+  return gulp.src(config.srcJSFiles)
 	.pipe(concat('complete.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist'));
