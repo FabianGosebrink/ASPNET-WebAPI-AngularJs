@@ -1,0 +1,16 @@
+{
+"requireSpaceAfterKeywords": [
+        "if",
+        "else",
+        "for",
+        "while",
+        "do",
+        "switch",
+        "case",
+        "return",
+        "try",
+        "catch",
+        "typeof"
+    ],
+	"excludeFiles": ["./node_modules/**/*.js"]
+}

@@ -1,7 +1,14 @@
 ﻿(function () {
     'use strict';
-angular.module('home.homeModule').factory("home.services.peopleService", [
-    "$http", "$q", "common.services.arrayHelper", function ($http, $q, arrayHelper) {
+
+    angular
+        .module('home.homeModule')
+        .factory('home.services.peopleService', peopleService);
+
+    peopleService.$inject = ["$http", "$q", "common.services.arrayHelper"];
+
+    /* @ngInject */
+    function peopleService($http, $q, arrayHelper) {
 
         var url = 'api/home/';
 
@@ -70,7 +77,6 @@ angular.module('home.homeModule').factory("home.services.peopleService", [
             addPerson: _addPerson,
             deletePerson: _deletePerson,
             allPeople: _allPeople
-        }
+        };
     }
-]);
 })();
