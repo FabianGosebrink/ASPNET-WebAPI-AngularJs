@@ -1,6 +1,8 @@
 ﻿(function () {
+
     "use strict";
-    angular.module('AngularJsDemoApp',
+
+    angular.module("AngularJsDemoApp",
     [
         "ngRoute",
         "ngAnimate",
@@ -15,6 +17,5 @@
     ]).config(["cfpLoadingBarProvider", function (cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeSpinner = false;
     }]);
+
 }());
-
-

@@ -1,9 +1,8 @@
 ﻿(function () {
-    'use strict';
-
+    "use strict";
     angular
-        .module('contact.contactModule')
-        .controller('contact.controllers.contactController', contactController);
+        .module("contact.contactModule")
+        .controller("contact.controllers.contactController", contactController);
 
     contactController.$inject = [];
     /* @ngInject */

@@ -1,9 +1,9 @@
 ﻿(function () {
-    'use strict';
+    "use strict";
 
     angular
-        .module('app.common')
-        .factory('common.services.arrayHelper', arrayHelper);
+        .module("app.common")
+        .factory("common.services.arrayHelper", arrayHelper);
 
     arrayHelper.$inject = [];
 
@@ -47,7 +47,5 @@
         function _addItemToArray(array, newItem) {
             array.splice(0, 0, newItem);
         }
-
-       
     }
 })();

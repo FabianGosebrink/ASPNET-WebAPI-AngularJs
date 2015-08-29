@@ -1,6 +1,4 @@
 ﻿(function () {
-    'use strict';
-
-    angular.module('app.common', []);
-
+    "use strict";
+    angular.module("app.common", []);
 })();

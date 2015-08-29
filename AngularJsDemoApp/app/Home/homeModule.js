@@ -1,11 +1,13 @@
 ﻿(function () {
-    'use strict';
 
-    var homeModule = angular.module('home.homeModule', ['ngRoute']);
-    
+    "use strict";
+
+    var homeModule = angular
+        .module("home.homeModule", ["ngRoute"]);
+
     homeModule.config(homeconfig);
 
-    homeconfig.$inject = ['$routeProvider'];
+    homeconfig.$inject = ["$routeProvider"];
 
     /* @ngInject */
     function homeconfig($routeProvider) {
@@ -15,6 +17,8 @@
                  controllerAs: "viewModel",
                  templateUrl: "app/Home/Templates/overview.html"
              })
-             .otherwise({ redirectTo: "/" });
+             .otherwise({
+                redirectTo: "/"
+            });
     }
 })();
