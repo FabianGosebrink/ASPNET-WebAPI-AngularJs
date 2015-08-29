@@ -1,4 +1,4 @@
-/// <vs BeforeBuild="compress" SolutionOpened="watch" />
+/// <vs BeforeBuild='default' SolutionOpened='watch' />
 var gulp = require("gulp");
 var jshint = require("gulp-jshint");
 var jscs = require("gulp-jscs");
