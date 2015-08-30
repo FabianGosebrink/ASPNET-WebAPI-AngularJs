@@ -4,8 +4,7 @@
     "description": "None",
     "main": "application.js",
     "scripts": {
-        "init": "npm install",
-        "install": "bower install"
+        "init": "npm install"
     },
     "author": "Fabian Gosebrink",
     "license": "MIT",
