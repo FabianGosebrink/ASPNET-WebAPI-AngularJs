@@ -47,7 +47,7 @@ gulp.task('inject', ["compress"], function () {
 
 gulp.task("compress",["vet", "clean"], function() {
   return gulp.src(config.srcJSFiles)
-	.pipe(concat(config.targetMinJsFile))
+    .pipe(concat(config.targetMinJsFile))
     .pipe(uglify())
     .pipe(gulp.dest(config.targetMinFolder));
 });
