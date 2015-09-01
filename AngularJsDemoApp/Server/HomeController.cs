@@ -52,7 +52,7 @@ namespace AngularJsDemoApp.Server
 
             Singleton.Instance.Persons.Add(personToAdd);
 
-            return Ok(personToAdd);
+            return CreatedAtRoute("DefaultApi", new { id = personToAdd.Id }, personToAdd);
         }
 
         [HttpDelete]
