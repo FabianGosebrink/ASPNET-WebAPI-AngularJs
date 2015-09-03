@@ -15,7 +15,7 @@ var config = {
         "./app/*/*/*.js",
         "!./node_modules/**/*.js"
     ],
-    targetHtmlFile: "./index.html",
+    targetHtmlFile: "index.html",
     targetMinAppJsFile: "app.min.js",
     targetDistFolder: "dist/",
     targetDistJsFolder: "dist/js/",
@@ -50,4 +50,12 @@ gulp.task('serve-dist', ["uglifyApp"], function () {
 
     return target.pipe(inject(sources))
         .pipe(gulp.dest(config.targetDistFolder));
+});
+
+gulp.task('serve-dev', ["vet", "clean"], function () {
+    var target = gulp.src(config.targetHtmlFile);
+    var sources = gulp.src(config.srcJSFiles);
+
+    return target.pipe(inject(sources))
+        .pipe(gulp.dest(config.root));
 });
