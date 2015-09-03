@@ -16,19 +16,18 @@ var config = {
         "!./node_modules/**/*.js"
     ],
     targetHtmlFile: "./index.html",
-    targetMinJsFile: "complete.min.js",
-    targetMinFolder: "dist/",
+    targetMinAppJsFile: "app.min.js",
+    targetDistFolder: "dist/",
+    targetDistJsFolder: "dist/js/",
     root: "./"
 };
-
-
 
 gulp.task("watch", function(){
     return gulp.watch(config.srcJSFiles, ["compress"]);
 });
 
 gulp.task("clean", function() {
-    del.sync([config.targetMinFolder + config.targetMinJsFile]);
+    del.sync([config.targetDistFolder + "**/*.*"]);
 });
 
 gulp.task("vet", function() {
@@ -38,20 +37,17 @@ gulp.task("vet", function() {
         .pipe(jshint.reporter("jshint-stylish", { verbose: true }));
 });
 
-gulp.task('inject', ["compress"], function () {
+gulp.task("uglifyApp",["vet", "clean"], function() {
+  return gulp.src(config.srcJSFiles)
+    .pipe(concat(config.targetMinAppJsFile))
+    .pipe(uglify())
+    .pipe(gulp.dest(config.targetDistJsFolder));
+});
+
+gulp.task('serve-dist', ["uglifyApp"], function () {
     var target = gulp.src(config.targetHtmlFile);
-    var sources = gulp.src(config.targetMinFolder + config.targetMinJsFile);
+    var sources = gulp.src(config.targetDistJsFolder + config.targetMinAppJsFile);
 
     return target.pipe(inject(sources))
-        .pipe(gulp.dest(config.root));
+        .pipe(gulp.dest(config.targetDistFolder));
 });
-
-gulp.task("compress",["vet", "clean"], function() {
-  return gulp.src(config.srcJSFiles)
-    .pipe(concat(config.targetMinJsFile))
-    .pipe(uglify())
-    .pipe(gulp.dest(config.targetMinFolder));
-});
-
-//Set a default tasks
-gulp.task("default", ["compress", "inject"], function(){});
