@@ -117,6 +117,7 @@
     <Content Include="app\Home\homeModule.js" />
     <Content Include="app\Home\Services\peopleServices.js" />
     <Content Include="app\Home\Templates\overview.html" />
+    <Content Include="dist\complete.min.js" />
     <Content Include="gulpfile.js" />
     <Content Include="libs\angular-animate\angular-animate.js" />
     <Content Include="libs\angular-animate\angular-animate.min.js" />
@@ -267,8 +268,6 @@
     <Content Include="libs\jquery\src\var\toString.js" />
     <Content Include="libs\jquery\src\wrap.js" />
     <Content Include="packages.config" />
-    <Content Include="app\.bowerrc" />
-    <Content Include="app\bower.json" />
     <Content Include="libs\angular-animate\.bower.json" />
     <Content Include="libs\angular-animate\angular-animate.min.js.map" />
     <Content Include="libs\angular-animate\bower.json" />
@@ -406,6 +405,8 @@
     <Content Include=".jshintignore" />
     <Content Include=".jshintrc" />
     <Content Include="package.json" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

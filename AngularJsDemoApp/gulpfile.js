@@ -17,7 +17,8 @@ var config = {
     ],
     targetHtmlFile: "./index.html",
     targetMinJsFile: "complete.min.js",
-    targetMinFolder: "dist/"
+    targetMinFolder: "dist/",
+    root: "./"
 };
 
 
@@ -27,7 +28,7 @@ gulp.task("watch", function(){
 });
 
 gulp.task("clean", function() {
-    del.sync(["dist/complete.min.js"]);
+    del.sync([config.targetMinFolder + config.targetMinJsFile]);
 });
 
 gulp.task("vet", function() {
@@ -42,7 +43,7 @@ gulp.task('inject', ["compress"], function () {
     var sources = gulp.src(config.targetMinFolder + config.targetMinJsFile);
 
     return target.pipe(inject(sources))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest(config.root));
 });
 
 gulp.task("compress",["vet", "clean"], function() {
