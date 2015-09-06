@@ -6,8 +6,8 @@ A simple demo application with AngularJS.
 
 Here bower and npm is used. Run run the corresponsing commands to install/update the packages.
 
-I also added gulp to uglify, minify and inject the angular app javascript files into the index.html.
-You can either run the gulp default task with "gulp" or uncomment all the single javascript files. Then they are loaded explicitly.
+I also added gulp to inject the angular app and bower javascript files into the index.html.
+please run "gulp injectJsIntoIndex" to inject all the files automatically.
 
 Note that this is just a sample! NEVER use a Singleton to replace a database in a business-application.
 This was just made for demo purposes.
