@@ -133,6 +133,7 @@
     <Content Include="libs\angular-loading-bar\build\loading-bar.min.css" />
     <Content Include="libs\angular-loading-bar\build\loading-bar.min.js" />
     <Content Include="libs\angular-loading-bar\Gruntfile.js" />
+    <Content Include="libs\angular-loading-bar\index.js" />
     <Content Include="libs\angular-loading-bar\src\loading-bar.css" />
     <Content Include="libs\angular-loading-bar\src\loading-bar.js" />
     <Content Include="libs\angular-resource\angular-resource.js" />
