@@ -1,9 +1,16 @@
 ﻿(function () {
-    'use strict';
-angular.module('home.homeModule').factory("home.services.peopleService", [
-    "$http", "$q", "common.services.arrayHelper", function ($http, $q, arrayHelper) {
+    "use strict";
 
-        var url = 'api/home/';
+    angular
+        .module("home.homeModule")
+        .factory("home.services.peopleService", peopleService);
+
+    peopleService.$inject = ["$http", "$q", "appSettings", "_"];
+
+    /* @ngInject */
+    function peopleService($http, $q, appSettings, _) {
+
+        var url = appSettings.serverPath + "api/home/";
 
         var _allPeople = [];
 
@@ -32,7 +39,8 @@ angular.module('home.homeModule').factory("home.services.peopleService", [
             $http.post(url, newPersonToAdd)
                 .then(function (result) {
                     // Successful
-                    arrayHelper.addItemToArray(_allPeople, result.data);
+                    _allPeople.push(result.data);
+
                     deferred.resolve(result);
                 },
                     function (result) {
@@ -43,21 +51,19 @@ angular.module('home.homeModule').factory("home.services.peopleService", [
             return deferred.promise;
         };
 
-        var _deletePerson = function (personToDelete) {
+        var _deletePerson = function(personToDelete) {
 
             var deferred = $q.defer();
 
             $http.delete(url + personToDelete.Id)
-                .then(function (result) {
-                    // Successful
-                    for (var i = _allPeople.length; i--;) {
-                        if (_allPeople[i].Id === personToDelete.Id) {
-                            _allPeople.splice(i, 1);
-                        }
-                    }
-                    deferred.resolve(result);
-                },
-                    function () {
+                .then(function(result) {
+                        // Successful
+                        _.remove(_allPeople, function(person) {
+                            return person.Id === personToDelete.Id;
+                        });
+                        deferred.resolve(result);
+                    },
+                    function() {
                         // Error
                         deferred.reject();
                     });
@@ -70,7 +76,6 @@ angular.module('home.homeModule').factory("home.services.peopleService", [
             addPerson: _addPerson,
             deletePerson: _deletePerson,
             allPeople: _allPeople
-        }
+        };
     }
-]);
 })();

@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -108,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\application.js" />
-    <Content Include="app\Common\Services\ArrayHelpers.js" />
     <Content Include="app\Contact\Controllers\contactController.js" />
     <Content Include="app\Contact\contactModule.js" />
     <Content Include="app\Contact\Templates\contact.html" />
@@ -116,6 +116,8 @@
     <Content Include="app\Home\homeModule.js" />
     <Content Include="app\Home\Services\peopleServices.js" />
     <Content Include="app\Home\Templates\overview.html" />
+    <Content Include="gulp.config.js" />
+    <Content Include="gulpfile.js" />
     <Content Include="libs\angular-animate\angular-animate.js" />
     <Content Include="libs\angular-animate\angular-animate.min.js" />
     <Content Include="libs\angular-animate\index.js" />
@@ -264,9 +266,9 @@
     <Content Include="libs\jquery\src\var\support.js" />
     <Content Include="libs\jquery\src\var\toString.js" />
     <Content Include="libs\jquery\src\wrap.js" />
+    <Content Include="libs\lodash\lodash.js" />
+    <Content Include="libs\lodash\lodash.min.js" />
     <Content Include="packages.config" />
-    <Content Include="app\.bowerrc" />
-    <Content Include="app\bower.json" />
     <Content Include="libs\angular-animate\.bower.json" />
     <Content Include="libs\angular-animate\angular-animate.min.js.map" />
     <Content Include="libs\angular-animate\bower.json" />
@@ -400,6 +402,15 @@
     <Content Include="libs\angular-bootstrap\bower.json" />
     <Content Include="libs\angular-bootstrap\package.json" />
     <Content Include="libs\angular-bootstrap\README.md" />
+    <Content Include=".jscsrc" />
+    <Content Include=".jshintignore" />
+    <Content Include=".jshintrc" />
+    <Content Include="package.json" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
+    <Content Include="libs\lodash\.bower.json" />
+    <Content Include="libs\lodash\bower.json" />
+    <Content Include="libs\lodash\LICENSE" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

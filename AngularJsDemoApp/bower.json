@@ -1,0 +1,23 @@
+{
+  "name": "AngularJsDemoApp",
+  "description": "AngularJs Demo application with IIFEs, angularJs, Gulp, Bower, etc...",
+  "version": "0.0.1",
+  "authors": [
+    "FabianGosebrink"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-animate": "~1.4.4",
+    "angular-bootstrap": "~0.13.3",
+    "angular-loading-bar": "~0.8.0",
+    "angular-resource": "~1.4.4",
+    "angular-route": "~1.4.4",
+    "angular-toastr": "~1.4.1",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.1"
+  },
+  "devDependencies": {}
+}
