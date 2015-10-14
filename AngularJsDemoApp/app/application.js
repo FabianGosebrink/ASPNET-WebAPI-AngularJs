@@ -10,7 +10,7 @@
             "ui.bootstrap",
             "angular-loading-bar",
             "toastr",
-            "app.common",
+
             "home.homeModule",
             "contact.contactModule"
         ]).config([

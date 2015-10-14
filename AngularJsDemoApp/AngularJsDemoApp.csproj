@@ -109,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\application.js" />
-    <Content Include="app\Common\commonModule.js" />
     <Content Include="app\Contact\Controllers\contactController.js" />
     <Content Include="app\Contact\contactModule.js" />
     <Content Include="app\Contact\Templates\contact.html" />
