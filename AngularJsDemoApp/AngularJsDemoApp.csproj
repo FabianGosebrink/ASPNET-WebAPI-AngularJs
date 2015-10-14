@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -109,7 +110,6 @@
   <ItemGroup>
     <Content Include="app\application.js" />
     <Content Include="app\Common\commonModule.js" />
-    <Content Include="app\Common\Services\ArrayHelpers.js" />
     <Content Include="app\Contact\Controllers\contactController.js" />
     <Content Include="app\Contact\contactModule.js" />
     <Content Include="app\Contact\Templates\contact.html" />
@@ -267,6 +267,8 @@
     <Content Include="libs\jquery\src\var\support.js" />
     <Content Include="libs\jquery\src\var\toString.js" />
     <Content Include="libs\jquery\src\wrap.js" />
+    <Content Include="libs\lodash\lodash.js" />
+    <Content Include="libs\lodash\lodash.min.js" />
     <Content Include="packages.config" />
     <Content Include="libs\angular-animate\.bower.json" />
     <Content Include="libs\angular-animate\angular-animate.min.js.map" />
@@ -407,6 +409,9 @@
     <Content Include="package.json" />
     <Content Include=".bowerrc" />
     <Content Include="bower.json" />
+    <Content Include="libs\lodash\.bower.json" />
+    <Content Include="libs\lodash\bower.json" />
+    <Content Include="libs\lodash\LICENSE" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
