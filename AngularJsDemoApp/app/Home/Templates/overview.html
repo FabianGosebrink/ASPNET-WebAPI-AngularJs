@@ -53,32 +53,32 @@
                 </span>
             </div>
             <br />
-            <div class="row">
-                <table class="table table-striped resultArea" ng-cloak>
-                    <tr>
-                        <th><a href="" data-ng-click="predicate = 'Name'; reverse=!reverse">Name</a></th>
 
-                        <th class="text-right">
-                            <a href="" data-ng-click="predicate = 'Age'; reverse=!reverse">Age</a>
-                        </th>
-                        <th class="text-right">
-                            Actions
-                        </th>
-                    </tr>
-                    <tr data-ng-repeat="person in viewModel.peopleService.allPeople |  orderBy:predicate:reverse track by $index">
-                        <td class="text-left">
-                            {{person.Name}}
-                        </td>
-                        <td class="text-right">
-                            {{person.Age}}
-                        </td>
-                        <td class="text-right">
-                            <button data-ng-click="viewModel.deletePerson(person)" class="btn btn-primary btn-xs">Delete</button>
-                        </td>
-                    </tr>
+            <table class="table table-hover table-striped table-condensed">
+                <tr>
+                    <th><a href="" data-ng-click="predicate = 'Name'; reverse=!reverse">Name</a></th>
 
-                </table>
-            </div>
+                    <th class="text-right hidden-xs hidden-sm">
+                        <a href="" data-ng-click="predicate = 'Age'; reverse=!reverse">Age</a>
+                    </th>
+                    <th class="text-right">
+                        Actions
+                    </th>
+                </tr>
+                <tr data-ng-repeat="person in viewModel.peopleService.allPeople |  orderBy:predicate:reverse track by $index">
+                    <td class="text-left">
+                        {{person.Name}}
+                    </td>
+                    <td class="text-right hidden-xs hidden-sm">
+                        {{person.Age}}
+                    </td>
+                    <td class="text-right">
+                        <button data-ng-click="viewModel.deletePerson(person)" class="btn btn-primary btn-xs">Delete</button>
+                    </td>
+                </tr>
+
+            </table>
+
         </div>
     </div>
 
